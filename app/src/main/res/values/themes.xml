@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- 원본 -->
+<!--    <style name="Theme.CopyAppDiscord" parent="android:Theme.Material.Light.NoActionBar" />-->
+    <!--
+        SplashScreen 커스텀하기위해 사용
+        참고 사이트
+        https://developer.android.com/develop/ui/views/launch/splash-screen?hl=ko
+        https://github.com/android/nowinandroid/blob/main/app/src/main/res/values/themes.xml
+        https://medium.com/mobile-app-development-publication/splash-screen-api-with-jetpack-compose-9001c561b9c8
+    -->
+    <style name="Theme.CopyAppDiscord" parent="Theme.SplashScreen">
+        <!-- 배경 색상 -->
+        <item name="windowSplashScreenBackground">#1C1D21</item>
+        <!-- 화면 중앙에 띄울 아이콘 -->
+        <item name="windowSplashScreenAnimatedIcon">@drawable/discord_icon_white</item>
+        <!-- SplashScreen 표시할 시간 -->
+        <item name="windowSplashScreenAnimationDuration">200</item>
+        <item name="postSplashScreenTheme">@style/Theme.CopyAppDiscord</item>
+    </style>
 
-    <style name="Theme.CopyAppDiscord" parent="android:Theme.Material.Light.NoActionBar" />
 </resources>

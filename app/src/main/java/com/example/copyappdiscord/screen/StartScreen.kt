@@ -1,5 +1,6 @@
 package com.example.copyappdiscord.screen
 
+import android.os.Looper
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -12,6 +13,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.navigation.NavController
 import com.example.copyappdiscord.R
+import com.example.copyappdiscord.navigation.NavPath
+import java.util.logging.Handler
 
 @Composable
 fun StartScreen(navController: NavController, innerPadding: PaddingValues) {
@@ -23,8 +26,12 @@ fun StartScreen(navController: NavController, innerPadding: PaddingValues) {
         contentAlignment = Alignment.Center
     ) {
         Image(
-            painter = painterResource(id = R.drawable.discord_icon_white),
+            painter = painterResource(id = R.drawable.discord_icon_blurple),
             contentDescription = "Discord Icon White.png"
         )
     }
+
+//    android.os.Handler(Looper.getMainLooper()).postDelayed({
+//        navController.navigate(NavPath.Main.route)
+//    },2000)
 }

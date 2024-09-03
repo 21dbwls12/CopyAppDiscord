@@ -70,4 +70,6 @@ dependencies {
     implementation (libs.androidx.navigation.compose)
     // ViewModel
     implementation (libs.androidx.lifecycle.viewmodel.ktx)
+    // SplashScreen
+    implementation(libs.androidx.core.splashscreen)
 }
