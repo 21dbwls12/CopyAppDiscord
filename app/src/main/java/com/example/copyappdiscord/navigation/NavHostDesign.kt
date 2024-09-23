@@ -10,11 +10,12 @@ import com.example.copyappdiscord.screen.MainScreen
 import com.example.copyappdiscord.screen.StartScreen
 
 @Composable
-fun NavHostDesign(startDestination: String = NavPath.Start.route, innerPadding: PaddingValues) {
+fun NavHostDesign(startDestination: String = NavPath.Main.route, innerPadding: PaddingValues) {
     val navController = rememberNavController()
 
     NavHost(navController = navController, startDestination = startDestination) {
-        composable(startDestination) { StartScreen(navController, innerPadding) }
-        composable(NavPath.Main.route) { MainScreen(navController, innerPadding) }
+//        composable(startDestination) { StartScreen(navController, innerPadding) }
+//        composable(NavPath.Main.route) { MainScreen(navController, innerPadding) }
+        composable(startDestination) { MainScreen(navController, innerPadding) }
     }
 }
