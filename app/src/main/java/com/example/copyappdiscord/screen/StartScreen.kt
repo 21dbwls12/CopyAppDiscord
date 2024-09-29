@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -40,20 +41,15 @@ fun StartScreen(navController: NavController) {
     Box(
         modifier = Modifier.fillMaxSize()
     ) {
-        StartScreenBG()
+        StartScreenImage(
+            imageId = R.drawable.nightsky,
+            description = "Background of start screen",
+            contentScale = ContentScale.FillBounds,
+            modifier = Modifier.fillMaxSize()
+        )
         StartScreenContentTop()
         StartScreenContentBottom()
     }
-}
-
-@Composable
-private fun StartScreenBG() {
-    Image(
-        painter = painterResource(id = R.drawable.nightsky),
-        contentDescription = "Background of start screen",
-        contentScale = ContentScale.FillBounds,
-        modifier = Modifier.fillMaxSize()
-    )
 }
 
 @Composable
@@ -66,9 +62,9 @@ private fun StartScreenContentTop() {
             .fillMaxHeight(0.9f)
             .padding(15.dp)
     ) {
-        Image(
-            painter = painterResource(id = R.drawable.discord_icon_white),
-            contentDescription = "Discord Icon",
+        StartScreenImage(
+            imageId = R.drawable.discord_icon_white,
+            description = "Discord Icon",
             modifier = Modifier.size(90.dp)
         )
         WelcomeHeadText()
@@ -97,6 +93,21 @@ private fun StartScreenContentBottom() {
 }
 
 @Composable
+private fun StartScreenImage(
+    imageId: Int,
+    description: String,
+    contentScale: ContentScale = ContentScale.Fit,
+    modifier: Modifier
+) {
+    Image(
+        painter = painterResource(id = imageId),
+        contentDescription = description,
+        contentScale = contentScale,
+        modifier = modifier
+    )
+}
+
+@Composable
 private fun WelcomeHeadText() {
     Text(
         // 한 텍스트에 스타일을 다르게 입히기 위해 사용
@@ -117,7 +128,6 @@ private fun WelcomeHeadText() {
     )
 }
 
-@Composable
 private fun welcomeHeadDiscordSpanStyle(): SpanStyle {
     return SpanStyle(
         color = Color.White,
@@ -128,7 +138,6 @@ private fun welcomeHeadDiscordSpanStyle(): SpanStyle {
     )
 }
 
-@Composable
 private fun welcomeHeadRestSpanStyle(): SpanStyle {
     return SpanStyle(
         color = Color.White,
@@ -162,10 +171,23 @@ private fun WelcomeBodyText(text: String) {
 private fun StartButton(text: String, isSignUp: Boolean, onClick: () -> Unit) {
     Button(
         onClick = onClick,
-        modifier = Modifier.fillMaxWidth().padding(top = 12.dp),
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(top = 12.dp),
         shape = RoundedCornerShape(30.dp),
-        colors = ButtonDefaults.buttonColors(if (isSignUp) Color.White else Color(0xFF161CBB))
+        colors = buttonColors(isSignUp = isSignUp)
     ) {
-        Text(text = text, color = if (isSignUp) Color.Black else Color.White, fontWeight = FontWeight.Bold, fontSize = 15.sp, modifier = Modifier.padding(vertical = 5.dp))
+        Text(
+            text = text,
+            color = if (isSignUp) Color.Black else Color.White,
+            fontWeight = FontWeight.Bold,
+            fontSize = 15.sp,
+            modifier = Modifier.padding(vertical = 5.dp)
+        )
     }
+}
+
+@Composable
+private fun buttonColors(isSignUp: Boolean): ButtonColors {
+    return ButtonDefaults.buttonColors(if (isSignUp) Color.White else Color(0xFF161CBB))
 }
