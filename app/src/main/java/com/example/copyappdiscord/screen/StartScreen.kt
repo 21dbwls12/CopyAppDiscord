@@ -9,6 +9,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavController
 import com.example.copyappdiscord.R
 
@@ -20,7 +21,8 @@ fun StartScreen(navController: NavController) {
         Image(
             painter = painterResource(id = R.drawable.nightsky),
             contentDescription = "Background of start screen",
-            contentScale = ContentScale.FillBounds
+            contentScale = ContentScale.FillBounds,
+            modifier = Modifier.fillMaxSize()
         )
         Box(
             modifier = Modifier.fillMaxSize(),
