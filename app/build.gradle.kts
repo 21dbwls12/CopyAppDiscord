@@ -1,6 +1,16 @@
+import java.util.Properties
+
+val properties = Properties()
+properties.load(project.rootProject.file("local.properties").inputStream())
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    // ktor-serialization
+    id("kotlinx-serialization")
+    // hilt
+    id("kotlin-kapt")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -15,6 +25,12 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        // supabase
+        buildConfigField("String", "SUPABASE_ANON_KEY", "\"${properties.getProperty("SUPABASE_ANON_KEY")}\"")
+        buildConfigField("String", "SECRET", "\"${properties.getProperty("SECRET")}\"")
+        buildConfigField("String", "SUPABASE_URL", "\"${properties.getProperty("SUPABASE_URL")}\"")
+
         vectorDrawables {
             useSupportLibrary = true
         }
@@ -72,4 +88,25 @@ dependencies {
     implementation (libs.androidx.lifecycle.viewmodel.ktx)
     // SplashScreen
     implementation(libs.androidx.core.splashscreen)
+    // supabase
+    implementation (libs.postgrest.kt)
+    implementation (libs.storage.kt)
+    implementation (libs.gotrue.kt)
+    // ktor
+    implementation (libs.ktor.client.core)
+    implementation(libs.ktor.client.cio)
+    implementation (libs.ktor.utils)
+    implementation(libs.ktor.client.logging)
+    implementation(libs.ktor.client.content.negotiation)
+    testImplementation(libs.ktor.client.mock)
+    // ktor-serialization
+    implementation(libs.kotlinx.serialization.json)
+    implementation(libs.ktor.serialization.kotlinx.json)
+    // hilt
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.android.compiler)
+}
+
+kapt {
+    correctErrorTypes = true
 }
