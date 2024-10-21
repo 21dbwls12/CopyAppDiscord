@@ -1,27 +1,27 @@
 [versions]
 agp = "8.5.2"
 coreSplashscreen = "1.0.1"
-gotrueKt = "2.0"
+gotrueKt = "3.0.1"
 hiltAndroid = "2.52"
 kotlin = "1.9.0"
 coreKtx = "1.13.1"
 junit = "4.13.2"
 junitVersion = "1.2.1"
 espressoCore = "3.6.1"
-kotlinxSerializationJson = "1.7.1"
+kotlinxSerializationJson = "1.7.3"
 ktorClientCio = "2.3.12"
-ktorClientContentNegotiation = "2.3.12"
-ktorClientCore = "2.3.12"
+ktorClientContentNegotiation = "3.0.0"
+ktorClientCore = "3.0.0"
 ktorClientLogging = "2.3.12"
 ktorClientMock = "2.3.12"
-ktorSerializationKotlinxJson = "2.3.12"
-ktorUtils = "2.3.12"
+ktorSerializationKotlinxJson = "3.0.0"
+ktorUtils = "3.0.0"
 lifecycleRuntimeKtx = "2.8.6"
-activityCompose = "1.9.2"
-composeBom = "2024.09.02"
-navigationCompose = "2.8.1"
-postgrestKt = "2.0"
-storageKt = "2.0"
+activityCompose = "1.9.3"
+composeBom = "2024.10.00"
+navigationCompose = "2.8.3"
+postgrestKt = "3.0.1"
+storageKt = "3.0.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -54,6 +54,7 @@ ktor-serialization-kotlinx-json = { module = "io.ktor:ktor-serialization-kotlinx
 ktor-utils = { module = "io.ktor:ktor-utils", version.ref = "ktorUtils" }
 postgrest-kt = { module = "io.github.jan-tennert.supabase:postgrest-kt", version.ref = "postgrestKt" }
 storage-kt = { module = "io.github.jan-tennert.supabase:storage-kt", version.ref = "storageKt" }
+
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
