@@ -19,8 +19,10 @@ ktorUtils = "3.0.0"
 lifecycleRuntimeKtx = "2.8.6"
 activityCompose = "1.9.3"
 composeBom = "2024.10.00"
+mockk = "1.13.13"
 navigationCompose = "2.8.3"
 postgrestKt = "3.0.1"
+robolectric = "4.13"
 storageKt = "3.0.1"
 
 [libraries]
@@ -52,7 +54,9 @@ ktor-client-logging = { module = "io.ktor:ktor-client-logging", version.ref = "k
 ktor-client-mock = { module = "io.ktor:ktor-client-mock", version.ref = "ktorClientMock" }
 ktor-serialization-kotlinx-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktorSerializationKotlinxJson" }
 ktor-utils = { module = "io.ktor:ktor-utils", version.ref = "ktorUtils" }
+mockk = { module = "io.mockk:mockk", version.ref = "mockk" }
 postgrest-kt = { module = "io.github.jan-tennert.supabase:postgrest-kt", version.ref = "postgrestKt" }
+robolectric = { module = "org.robolectric:robolectric", version.ref = "robolectric" }
 storage-kt = { module = "io.github.jan-tennert.supabase:storage-kt", version.ref = "storageKt" }
 
 

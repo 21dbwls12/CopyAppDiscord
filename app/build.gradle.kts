@@ -63,6 +63,12 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+    // test
+    testOptions {
+        unitTests {
+            isIncludeAndroidResources = true
+        }
+    }
 }
 
 dependencies {
@@ -105,6 +111,12 @@ dependencies {
     // hilt
     implementation(libs.hilt.android)
     kapt(libs.hilt.android.compiler)
+    // test - JUnit4
+    testImplementation(libs.junit)
+    // test - Robolectric
+    testImplementation(libs.robolectric)
+    // test - mockk
+    testImplementation(libs.mockk)
 }
 
 kapt {
