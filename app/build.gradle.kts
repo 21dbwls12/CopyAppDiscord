@@ -1,7 +1,7 @@
 import java.util.Properties
 
-val properties = Properties()
-properties.load(project.rootProject.file("local.properties").inputStream())
+val myProperties = Properties()
+myProperties.load(project.rootProject.file("local.properties").inputStream())
 
 plugins {
     alias(libs.plugins.android.application)
@@ -16,21 +16,21 @@ plugins {
 
 android {
     namespace = "com.example.copyappdiscord"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.copyappdiscord"
         minSdk = 28
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
         // supabase
-        buildConfigField("String", "SUPABASE_ANON_KEY", "\"${properties.getProperty("SUPABASE_ANON_KEY")}\"")
-        buildConfigField("String", "SECRET", "\"${properties.getProperty("SECRET")}\"")
-        buildConfigField("String", "SUPABASE_URL", "\"${properties.getProperty("SUPABASE_URL")}\"")
+        buildConfigField("String", "SUPABASE_ANON_KEY", "\"${myProperties.getProperty("SUPABASE_ANON_KEY")}\"")
+        buildConfigField("String", "SECRET", "\"${myProperties.getProperty("SECRET")}\"")
+        buildConfigField("String", "SUPABASE_URL", "\"${myProperties.getProperty("SUPABASE_URL")}\"")
 
         vectorDrawables {
             useSupportLibrary = true
