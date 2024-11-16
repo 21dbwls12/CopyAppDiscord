@@ -1,20 +1,37 @@
+import java.util.Properties
+
+val myProperties = Properties()
+myProperties.load(project.rootProject.file("local.properties").inputStream())
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.compose.compiler)
+    // ktor-serialization
+    id("kotlinx-serialization")
+    // hilt
+    id("kotlin-kapt")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
     namespace = "com.example.copyappdiscord"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.copyappdiscord"
         minSdk = 28
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        // supabase
+        buildConfigField("String", "SUPABASE_ANON_KEY", "\"${myProperties.getProperty("SUPABASE_ANON_KEY")}\"")
+        buildConfigField("String", "SECRET", "\"${myProperties.getProperty("SECRET")}\"")
+        buildConfigField("String", "SUPABASE_URL", "\"${myProperties.getProperty("SUPABASE_URL")}\"")
+
         vectorDrawables {
             useSupportLibrary = true
         }
@@ -47,6 +64,12 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+    // test
+    testOptions {
+        unitTests {
+            isIncludeAndroidResources = true
+        }
+    }
 }
 
 dependencies {
@@ -72,4 +95,30 @@ dependencies {
     implementation (libs.androidx.lifecycle.viewmodel.ktx)
     // SplashScreen
     implementation(libs.androidx.core.splashscreen)
+    // supabase
+    implementation (libs.postgrest.kt)
+    implementation (libs.storage.kt)
+    // ktor
+    implementation (libs.ktor.client.core)
+    implementation(libs.ktor.client.cio)
+    implementation (libs.ktor.utils)
+    implementation(libs.ktor.client.logging)
+    implementation(libs.ktor.client.content.negotiation)
+    testImplementation(libs.ktor.client.mock)
+    // ktor-serialization
+    implementation(libs.kotlinx.serialization.json)
+    implementation(libs.ktor.serialization.kotlinx.json)
+    // hilt
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.android.compiler)
+    // test - JUnit4
+    testImplementation(libs.junit)
+    // test - Robolectric
+    testImplementation(libs.robolectric)
+    // test - mockk
+    testImplementation(libs.mockk)
+}
+
+kapt {
+    correctErrorTypes = true
 }
