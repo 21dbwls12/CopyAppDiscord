@@ -48,7 +48,7 @@ fun StartScreen(navController: NavController) {
             modifier = Modifier.fillMaxSize()
         )
         StartScreenContentTop()
-        StartScreenContentBottom()
+        StartScreenContentBottom(navController)
     }
 }
 
@@ -74,7 +74,7 @@ private fun StartScreenContentTop() {
 }
 
 @Composable
-private fun StartScreenContentBottom() {
+private fun StartScreenContentBottom(navController: NavController) {
     Column(
         verticalArrangement = Arrangement.Bottom,
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -84,7 +84,7 @@ private fun StartScreenContentBottom() {
             .padding(vertical = 30.dp, horizontal = 50.dp)
     ) {
         StartButton(text = "가입하기", isSignUp = true) {
-
+            navController.navigate("signup")
         }
         StartButton(text = "로그인", isSignUp = false) {
 
