@@ -6,6 +6,7 @@ properties.load(project.rootProject.file("local.properties").inputStream())
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.compose.compiler)
     // ktor-serialization
     id("kotlinx-serialization")
     // hilt
@@ -97,7 +98,6 @@ dependencies {
     // supabase
     implementation (libs.postgrest.kt)
     implementation (libs.storage.kt)
-    implementation (libs.gotrue.kt)
     // ktor
     implementation (libs.ktor.client.core)
     implementation(libs.ktor.client.cio)

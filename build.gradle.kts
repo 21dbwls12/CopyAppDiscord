@@ -6,4 +6,6 @@ plugins {
     id ("org.jetbrains.kotlin.plugin.serialization") version "2.0.20"
     // hilt
     id("com.google.dagger.hilt.android") version "2.44" apply false
+    // kotlin compose compiler
+    alias(libs.plugins.compose.compiler) apply false
 }
