@@ -10,6 +10,7 @@
         https://medium.com/mobile-app-development-publication/splash-screen-api-with-jetpack-compose-9001c561b9c8
     -->
     <style name="Theme.CopyAppDiscord" parent="Theme.SplashScreen">
+        출처: https://silversound-coding.tistory.com/10 [베로의 개발일지:티스토리]
         <!-- 배경 색상 -->
         <item name="windowSplashScreenBackground">#1C1D21</item>
         <!-- 화면 중앙에 띄울 아이콘 -->
